@@ -1,0 +1,41 @@
+/* Esconde a barra de rolagem no Chrome */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Barra de rolagem customizada para outros navegadores */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--brown);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+html.dark body {
+  background-color: #121212;
+  color: white;
+}
+
+.navbar {
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+
+html.dark .navbar {
+  background-color: #1e1e1e;
+}
+
