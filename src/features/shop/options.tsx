@@ -17,7 +17,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ title, description, image, onAddToCart }) => {
   return (
-    <div className="bg-white shadow-2xl overflow-hidden rounded-md flex flex-col">
+    <div className="bg-white shadow-2xl overflow-hidden rounded-md flex flex-col transition-all hover:scale-110 duration-300">
       <img src={image} alt={title} className="w-full h-64 object-cover" />
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div>

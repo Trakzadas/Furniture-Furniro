@@ -7,9 +7,10 @@ import Footer from "./components/footer";
 import Shop from "./pages/shop";
 import Contact from "./pages/contact";
 import Login from "./pages/login";
+import Cadastro from './features/login/cadatro';
 import Nav from "./components/nav";
 import { CartProvider } from './components/CartContext';
-import { useTheme } from './assets/tema/hook'; // Hook do tema
+import { useTheme } from './assets/tema/hook';
 
 import './App.css';
 
@@ -20,18 +21,20 @@ interface AppLayoutProps {
 
 function AppLayout({ toggleTheme, theme }: AppLayoutProps) {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/";
+  // Verifica se a rota é login ou cadastro
+  const hideLayout = location.pathname === "/" || location.pathname === "/cadastro";
 
   return (
     <>
-      {!isLoginPage && <Nav toggleTheme={toggleTheme} theme={theme} />}
+      {!hideLayout && <Nav toggleTheme={toggleTheme} theme={theme} />}
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      {!isLoginPage && <Footer />}
+      {!hideLayout && <Footer />}
     </>
   );
 }

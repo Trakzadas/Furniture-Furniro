@@ -1,29 +1,26 @@
 import React, { useState } from "react";
-import Button from "../../components/buttom";
-import Input from "../../components/imput";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 
-const inputLogin = [
-  {
-    type: "email",
-    name: "Email",
-    label: "Email",
-    placeholder: "Digite seu email",
-    className: "w-full p-2 border border-gray-300 rounded-[8px] px-[20px] py-[20px] shadow-2xl",
-    required: true,
-  },
-  {
-    type: "password",
-    name: "Senha",
-    label: "Senha",
-    placeholder: "Digite sua senha",
-    className: "w-full p-2 border border-gray-300 rounded-[8px] px-[20px] py-[20px] shadow-2xl pr-[200px]",
-    required: true,
-  },
-];
+// Tipagem para o componente Input
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  icon: React.ComponentType<{ size?: number }>;
+};
+
+const Input: React.FC<InputProps> = ({ icon: Icon, ...props }) => (
+  <div className="relative w-full">
+    <div className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400">
+      <Icon size={20} />
+    </div>
+    <input
+      {...props}
+      className="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#B88E2F]/50 focus:border-[#B88E2F] outline-none transition-all duration-300"
+    />
+  </div>
+);
 
 const InputLogin: React.FC = () => {
-  const [form, setForm] = useState({ Email: "", Senha: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,30 +29,44 @@ const InputLogin: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Adicione sua lógica de validação/autenticação aqui
+    console.log("Login submetido com:", form);
     navigate("/home");
   };
 
   return (
-    <form className="space-y-4 max-w-md mx-auto" onSubmit={handleSubmit}>
-      {inputLogin.map((input, index) => (
+    <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+      <div className="space-y-5">
         <Input
-          key={index}
-          type={input.type}
-          name={input.name}
-          label={input.label}
-          placeholder={input.placeholder}
-          className={input.className}
-          required={input.required}
-          value={form[input.name as "Email" | "Senha"]}
+          icon={HiOutlineMail}
+          type="email"
+          name="email"
+          placeholder="Seu e-mail"
+          required
+          value={form.email}
           onChange={handleChange}
         />
-      ))}
-      <Button
-        type="submit"
-        className="w-[245px] h-[48px] text-[#B88E2F] text-[20px] border-[2px] border-[#B88E2F] ml-[70px] rounded-md shadow-lg"
-      >
-        Entrar
-      </Button>
+        <Input
+          icon={HiOutlineLockClosed}
+          type="password"
+          name="password"
+          placeholder="Sua senha"
+          required
+          value={form.password}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="mt-6 flex flex-col gap-y-4">
+        <button
+          type="submit"
+          className="w-full bg-[#B88E2F] text-white py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-opacity-90 transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#B88E2F]"
+        >
+          Entrar
+        </button>
+      </div>
+
+     
     </form>
   );
 };
