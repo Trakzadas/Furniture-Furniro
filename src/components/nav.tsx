@@ -51,12 +51,18 @@ function Nav({ theme, toggleTheme }: NavProps) {
         </div>
 
         {/* Navegação Desktop */}
-        <ul className="hidden md:flex text-lg space-x-10 text-gray-900 dark:text-white">
-          <Link to="/home"><li>Home</li></Link>
-          <Link to="/shop"><li>Shop</li></Link>
-          <li>About</li>
-          <Link to="/contact"><li>Contact</li></Link>
-        </ul>
+            <ul className="hidden md:flex text-lg space-x-10 text-gray-900 dark:text-white">
+            <Link to="/home">
+              <li className="hover:text-[#B88E2F] transition-colors duration-200 cursor-pointer">Home</li>
+            </Link>
+            <Link to="/shop">
+              <li className="hover:text-[#B88E2F] transition-colors duration-200 cursor-pointer">Shop</li>
+            </Link>
+            <li className="hover:text-[#B88E2F] transition-colors duration-200 cursor-pointer">About</li>
+            <Link to="/contact">
+              <li className="hover:text-[#B88E2F] transition-colors duration-200 cursor-pointer">Contact</li>
+            </Link>
+          </ul>
 
         {/* Ícones Desktop */}
         <ul className="hidden md:flex justify-between w-72 items-center text-gray-900 dark:text-white">
