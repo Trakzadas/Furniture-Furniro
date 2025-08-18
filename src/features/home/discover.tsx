@@ -14,7 +14,7 @@ function Disc() {
         </p>
         <Button
           title="BUY NOW"
-          className="w-full sm:w-[222px] h-14 bg-[#B88E2F] text-white mt-8 font-bold text-base sm:text-[17px] rounded-md"
+          className="w-full sm:w-[222px] h-14 bg-[#B88E2F] text-white mt-8 font-bold text-base sm:text-[17px] rounded-md transition-all hover:scale-110 duration-300"
         />
       </div>
     </div>
