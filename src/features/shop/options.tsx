@@ -5,6 +5,7 @@ import Loli from '../../assets/img/loli.svg';
 import Resp from '../../assets/img/resp.svg';
 import Grifo from '../../assets/img/grifo.svg';
 import Muggo from '../../assets/img/muggo.svg';
+import { toast } from "sonner";
 import { useCart } from '../../components/CartContext';
 
 
@@ -58,10 +59,12 @@ const cardData = [
 const CardOption: React.FC = () => {
   const { addToCart } = useCart();
 
-  // 🔁 Recebe todos os dados e envia ao contexto
- const handleAddToCart = (title: string, image: string, price: string) => {
+const handleAddToCart = (title: string, image: string, price: string) => {
   addToCart({ title, image, price });
-  alert(`${title} adicionado ao carrinho!`);
+  toast.success(`${title} adicionado ao carrinho!`, {
+    description: `Preço: ${price}`,
+    duration: 3000,
+  });
 };
 
   return (

@@ -11,6 +11,7 @@ import Cadastro from './features/login/cadatro';
 import Nav from "./components/nav";
 import { CartProvider } from './components/CartContext';
 import { useTheme } from './assets/tema/hook';
+import { Toaster } from 'sonner'; // Adiciona toast
 
 import './App.css';
 
@@ -21,7 +22,6 @@ interface AppLayoutProps {
 
 function AppLayout({ toggleTheme, theme }: AppLayoutProps) {
   const location = useLocation();
-  // Verifica se a rota é login ou cadastro
   const hideLayout = location.pathname === "/" || location.pathname === "/cadastro";
 
   return (
@@ -35,6 +35,8 @@ function AppLayout({ toggleTheme, theme }: AppLayoutProps) {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       {!hideLayout && <Footer />}
+      {/* Toast container */}
+      <Toaster richColors position="top-right" />
     </>
   );
 }
