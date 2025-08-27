@@ -11,7 +11,7 @@ import Cadastro from './features/login/cadatro';
 import Nav from "./components/nav";
 import { CartProvider } from './components/CartContext';
 import { useTheme } from './assets/tema/hook';
-import { Toaster } from 'sonner'; // Adiciona toast
+import { Toaster } from 'sonner'; 
 
 import './App.css';
 

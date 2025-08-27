@@ -2,7 +2,8 @@ import { useState } from 'react'
 import Logo from '../assets/img/logo.svg'
 import { NavLink } from 'react-router-dom'
 import { useCart } from '../components/CartContext'
-import { User, MagnifyingGlass, Heart, ShoppingCart, Moon, Sun, List, X } from 'phosphor-react'
+import { User, MagnifyingGlass, Heart, ShoppingCart, Moon, Sun, List, X, Door } from 'phosphor-react';
+
 
 interface NavProps {
   theme: 'light' | 'dark'
@@ -132,9 +133,13 @@ function Nav({ theme, toggleTheme }: NavProps) {
         <div className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-lg border-l dark:border-gray-700 z-50 flex flex-col p-6 animate-slideIn">
           <div className="flex justify-between items-center mb-4 text-gray-900 dark:text-white">
             <h2 className="text-xl font-bold">Carrinho</h2>
-            <button onClick={() => setCartVisible(false)} className="text-red-500 dark:text-red-400 text-lg font-bold" aria-label="Fechar carrinho">
-              X
-            </button>
+           <button
+            onClick={() => setCartVisible(false)}
+            className="text-gray-500 dark:text-red-400 text-lg font-bold"
+            aria-label="Fechar carrinho"
+          >
+            <Door size={14} weight="bold" />
+          </button>
           </div>
           <div className="flex-1 overflow-auto text-gray-900 dark:text-white">
             {cart.length === 0 ? (
@@ -150,10 +155,10 @@ function Nav({ theme, toggleTheme }: NavProps) {
                         <p className="text-sm">{item.price}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold">x{item.quantity}</span>
+                        <span className="font-semibold text[2px] ">x{item.quantity}</span>
                         <button
                           onClick={() => removeFromCart(item.title)}
-                          className="text-red-500 hover:text-red-700 dark:hover:text-red-400 font-bold text-lg"
+                          className="text-red-500 hover:text-red-700 dark:hover:text-red-400 font-bold text-[10px]"
                           aria-label={`Remover ${item.title}`}
                         >
                           ✕
