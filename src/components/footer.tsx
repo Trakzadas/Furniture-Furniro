@@ -62,7 +62,7 @@ function Footer() {
 
                 {/* Bottom Line */}
                 <div className="border-t border-[#9F9F9F] mt-10 pt-6 text-center">
-                    <p className="text-sm text-[#333]">© 2023 Funiro. All rights reserved</p>
+                    <p className="text-sm">© 2023 Funiro. All rights reserved</p>
                 </div>
             </div>
         </footer>

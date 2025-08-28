@@ -41,7 +41,7 @@ function Nav({ theme, toggleTheme }: NavProps) {
         {/* Logo */}
         <div className="flex items-center">
           <img src={Logo} alt="Logo" className="w-10 h-10" />
-          <h1 className="text-2xl md:text-[40px] font-bold ml-3 text-gray-900 dark:text-white">Funiro</h1>
+          <h1 className="text-2xl md:text-[35px] font-bold ml-3 text-gray-900 dark:text-white">Funiro</h1>
         </div>
 
         {/* Menu Hamburguer - Mobile */}

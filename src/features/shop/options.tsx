@@ -18,16 +18,17 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ title, description, image, onAddToCart }) => {
   return (
-    <div className="bg-white shadow-2xl overflow-hidden rounded-md flex flex-col transition-all hover:scale-110 duration-300">
+    <div className="bg-white shadow-lg overflow-hidden rounded-lg flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       <img src={image} alt={title} className="w-full h-64 object-cover" />
-      <div className="p-4 flex flex-col justify-between flex-grow">
+      <div className="p-5 flex flex-col justify-between flex-grow">
         <div>
-          <h2 className="text-xl font-bold mb-2  text-[#35322d]">{title}</h2>
-          <p className="text-gray-700 text-base">{description}</p>
+          <h2 className="text-2xl font-semibold mb-2 text-gray-800">{title}</h2>
+          <p className="text-xl font-bold text-[#B88E2F] mb-4">{description}</p>
         </div>
         <button
           onClick={() => onAddToCart(title, image, description)}
-          className="mt-4 border-[#B88E2F] border px-4 py-2 text-[#B88E2F] rounded hover:bg-[#c0ba75] transition"
+          // 💡 Botão com estilo original: borda dourada, texto dourado, fundo branco
+          className="w-full py-3  text-[#B88E2F] bg-white  rounded-[35px] hover:bg-[#bea528] hover:text-white transition duration-300 ease-in-out font-bold shadow-md"
         >
           Adicionar ao carrinho
         </button>
@@ -59,17 +60,18 @@ const cardData = [
 const CardOption: React.FC = () => {
   const { addToCart } = useCart();
 
-const handleAddToCart = (title: string, image: string, price: string) => {
-  addToCart({ title, image, price });
-  toast.success(`${title} adicionado ao carrinho!`, {
-    description: `Preço: ${price}`,
-    duration: 3000,
-  });
-};
+  const handleAddToCart = (title: string, image: string, price: string) => {
+    addToCart({ title, image, price });
+    toast.success(`${title} adicionado ao carrinho!`, {
+      description: `Preço: ${price}`,
+      duration: 3000,
+    });
+  };
 
   return (
-    <div className="container mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div className="container mx-auto px-6 py-12">
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Nossos Produtos</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-10">
         {cardData.map((card, index) => (
           <Card
             key={index}

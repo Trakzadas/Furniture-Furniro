@@ -19,8 +19,8 @@ function Get() {
             Contact
           </h1>
 
-        
-          <div className="flex space-x-2 mt-[180px] font-semibold text-sm sm:text-base">
+
+          <div className="flex space-x-2 mt-[225px] font-semibold text-sm sm:text-base">
             <Link to="/home" className="hover:underline">
               home &gt;
             </Link>

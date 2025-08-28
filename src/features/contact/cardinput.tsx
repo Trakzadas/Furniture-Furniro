@@ -7,28 +7,28 @@ const inputData = [
     name: "Your name",
     label: "Your name",
     placeholder: "Abc",
-    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-[#35322d]transition-all hover:scale-110 duration-300",
+    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-black  transition-all hover:scale-110 duration-300",
   },
   {
     type: "email",
     name: "Email address",
     label: "Email address",
     placeholder: "Abc@def.com",
-    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-[#35322d]transition-all hover:scale-110 duration-300",
+    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-black transition-all hover:scale-110 duration-300",
   },
   {
     type: "text",
     name: "Subject",
     label: "Subject",
     placeholder: "This is an optional",
-    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-[#35322d]transition-all hover:scale-110 duration-300",
+    className: "w-full p-4 border border-gray-300 rounded-[8px] shadow-2xl  text-black transition-all hover:scale-110 duration-300",
   },
   {
     type: "text",
     name: "Message",
     label: "Message",
     placeholder: "Hi! I’d like to ask about",
-    className: "w-full p-4 border border-gray-300 rounded-[8px] h-32 shadow-2xl resize-none  text-[#35322d]transition-all hover:scale-110 duration-300",
+    className: "w-full p-4 border border-gray-300 rounded-[8px] h-32 shadow-2xl resize-none  text-black transition-all hover:scale-110 duration-300",
   },
 ];
 

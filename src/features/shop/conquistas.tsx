@@ -12,7 +12,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ title, description, image }) => {
   return (
-    <div className="flex items-center gap-4 p-4 bg-white rounded-md shadow-sm w-full">
+    <div className="flex items-center gap-4 p-4 rounded-md shadow-sm w-full">
       <img src={image} alt={title} className="w-[55px] h-[60px] object-contain" />
       <div>
         <h2 className="text-lg font-bold mb-1  text-[#35322d]">{title}</h2>
@@ -55,6 +55,7 @@ const CardShop: React.FC = () => {
             title={card.title}
             description={card.description}
             image={card.image}
+            
           />
         ))}
       </div>
