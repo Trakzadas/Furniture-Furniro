@@ -10,7 +10,8 @@ type CartItem = {
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
-  removeFromCart: (title: string) => void; // Adicionada função de remoção
+  removeFromCart: (title: string) => void;
+  finalizePurchase: () => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -37,8 +38,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCart(prevCart => prevCart.filter(item => item.title !== title));
   };
 
+  const finalizePurchase = () => {
+    if (cart.length === 0) {
+      alert("Seu carrinho está vazio!");
+      return;
+    }
+    alert(`Compra finalizada com ${cart.length} item(s)! 🎉`);
+    setCart([]); // limpa o carrinho
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, finalizePurchase }}>
       {children}
     </CartContext.Provider>
   );

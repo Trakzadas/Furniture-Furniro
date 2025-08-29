@@ -11,7 +11,7 @@ function Fundo() {
         
         {/* Coluna da Esquerda (Formulário) */}
         <div className="flex flex-col justify-center p-8 md:p-14">
-          <span className="mb-3 text-4xl font-bold">Bem-vindo de volta!</span>
+          <span className="mb-3 text-4xl font-bold text-black">Bem-vindo de volta!</span>
           <span className="font-light text-gray-500 mb-8">
             Faça login para continuar de onde parou.
           </span>
